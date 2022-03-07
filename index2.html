@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="tb1">
+    <tr><th>Nhập giá trị</th>
+        <th>Nhập số Foot</th>
+        <th>Nhập số Meter</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" id="nhapgt">
+        </td>
+        <td>
+            <select name="quality" id="s1" onchange="select()">
+                <option value="1">foot</option>
+                <option value="2">meter</option>
+            </select>
+        </td>
+        <td>
+            <select name="quality" id="s2" onchange="select()" >
+                <option value="1">foot</option>
+                <option value="2">meter</option>
+            </select>
+        </td>
+        <td></td>
+        <td>
+            <button onclick="convert()">Convert</button>
+        </td>
+    </tr>
+
+    <tr>
+        <h2 id="rs"></h2>
+    </tr>
+</table>
+
+</body>
+</html>
+<script>
+    function footToMeTer(foot){
+        let meter = 0.305 * foot;
+        return meter;
+    }
+
+    function meterToFoot(meter){
+        let foot = 3.279 * meter;
+        return foot;
+    }
+    function convert() {
+        console.log('nd --->');
+        let nhapgiatri = document.getElementById('nhapgt').value;
+        let s1 = document.getElementById('s1').value;
+        let s2 = document.getElementById('s2').value;
+
+        if(s1 == s2){
+
+            if(s1 == '1'){
+                alert(nhapgiatri + '.' + 'foot');
+            }else{
+                alert(nhapgiatri + '.' + 'meter')
+            }
+        }
+
+        if(s1 == '1' && s2 == '2'){
+            alert(nhapgiatri*0.305 + '.' + 'meter')
+        }
+
+        if(s1 == '2' && s2 == '1'){
+            alert(nhapgiatri*3.279 + '.' + 'foot');
+        }
+    }
+</script>
